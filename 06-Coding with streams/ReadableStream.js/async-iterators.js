@@ -1,5 +1,9 @@
 // readable streams are also async iterators
 
-for await (let chunk of process.stdin) {
-  console.log(chunk.toString());
+async function iterator() {
+  for await (let chunk of process.stdin) {
+    console.log(chunk.toString());
+  }
 }
+
+iterator();
