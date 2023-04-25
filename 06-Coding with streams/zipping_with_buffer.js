@@ -13,6 +13,8 @@ async function zipWithBuffer() {
   console.log("File was successfully compressed");
 }
 
+zipWithBuffer();
+
 // This approach works fine for small files but throws an range error for larger files
 // this approach also take huge amount of memory space
 // solution for this is to use streams
