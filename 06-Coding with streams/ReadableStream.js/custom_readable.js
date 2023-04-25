@@ -33,3 +33,21 @@ readInstance
   .on("end", () => {
     console.log("Finished Reading");
   });
+
+//   =================== READABLE STREAMS FROM ITERABLE =============
+
+const mountains = [
+  { name: "Everest", height: 8848 },
+  { name: "K2", height: 8611 },
+  { name: "Kangchenjunga", height: 8586 },
+  { name: "Lhotse", height: 8516 },
+  { name: "Makalu", height: 8481 },
+];
+
+const mountainStream = Readable.from(mountains);
+
+mountainStream.on("data", (chunk) => {
+  // we dont need to convert chunk to string for stdout because of object
+  // also object mode is enabled automatically for Readable.from(iterable)
+  console.log(chunk);
+});
