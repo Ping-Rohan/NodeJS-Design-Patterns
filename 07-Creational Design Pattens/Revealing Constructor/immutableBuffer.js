@@ -12,7 +12,6 @@ class ImmutableBuffer {
         modifiers[prop] = buffer[prop].bind(buffer);
       } else {
         this[prop] = buffer[prop].bind(buffer);
-        console.log(this);
       }
     }
     executor(modifiers);
@@ -24,3 +23,5 @@ const immutable = new ImmutableBuffer(hello.length, ({ write }) => {
   write(hello);
 });
 console.log(String.fromCharCode(immutable.readInt8(0)));
+
+// INTERNALLY JAVASCRIPT PROMISE ALSO USES REVEALING CONSTRUCTOR PATTERN
